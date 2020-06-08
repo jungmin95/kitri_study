@@ -1,0 +1,64 @@
+package condition;
+
+public class IfDice {
+
+	public static void main(String[] args) {
+		int num = (int) (Math.random()*100) +1;
+		System.out.println(num);
+		
+		double dou = Math.random();
+//		System.out.println(dou);
+		
+		int comnum = (int) (Math.random()*3);
+		if(comnum == 0) {
+			System.out.println("com : °¡À§");
+		}else if(comnum == 1) {
+			System.out.println("com : ¹ÙÀ§");
+		}else {
+			System.out.println("com : º¸");
+		}
+		
+		int mynum = (int) (Math.random()*3);
+		if(mynum == 0) {
+			System.out.println("my : °¡À§");
+		}else if(mynum == 1) {
+			System.out.println("my : ¹ÙÀ§");
+		}else {
+			System.out.println("my : º¸");
+		}
+		if (comnum == 0) {
+			if(mynum == 0) {
+				System.out.println("ºñ°å½À´Ï´Ù");
+			}else if(mynum == 1) {
+				System.out.println("my:½Â¸®");
+			}else if(mynum == 2) {
+				System.out.println("com:½Â¸®");
+			}
+		}else if(comnum == 1) {
+			if(mynum == 0) {
+				System.out.println("com:½Â¸®");
+			}else if(mynum == 1) {
+				System.out.println("ºñ°å½À´Ï´Ù");
+			}else if(mynum == 2) {
+				System.out.println("my:½Â¸®");
+			}
+		}else {
+			if(mynum == 0) {
+				System.out.println("my:½Â¸®");
+			}else if(mynum == 1) {
+				System.out.println("com: ½Â¸®");
+			}else if(mynum == 2) {
+				System.out.println("ºñ°å½À´Ï´Ù");
+			}
+		}
+		/*
+		 * GBB 0 °¡À§
+		 *     1 ¹ÙÀ§
+		 *     2 º¸
+		 *    COM = 1 ¹ÙÀ§
+		 *    MY =  0 °¡À§
+		 */
+
+	}
+
+}
