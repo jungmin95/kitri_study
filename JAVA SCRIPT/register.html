@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function register() {
+		var loc = document.registerForm.location;
+		var id = document.registerForm.id;
+		var pw = document.registerForm.password;
+		var pwcheck = document.registerForm.passwordCheck;
+		
+		var gen = document.registerForm.gender;
+		var hobby = document.registerForm.hobby;
+		var str = "";
+		var strgen = ""
+		var flag=true;
+		
+		if(id.value == "") {
+			alert("아이디에 빈공간이 존재")
+			return false;
+		}
+		if(id.value.length>=10 || id.value.length <= 3) {
+			alert("아이디는 3자이상 10자이하");
+			id.value="";
+			id.focus();
+			return false;
+		}
+		if(pw.value == "") {
+			alert("패스워드 빈공간이 존재");
+			return false;
+		}
+		if(pwcheck.value == "") {
+			alert("패스워드check에 빈공간이 존재");
+			return false;
+		}
+		if(pw.value != pwcheck.value) {
+			alert("비밀번호 일치하지않음");
+			pw.value="";
+			pwcheck.value="";
+			pw.focus();
+			return false;
+		}
+		
+		for(i=0; i<gen.length; i++ ){
+			if(gen[i].checked) {
+				strgen += gen[i].value
+				flag=false;
+				break;
+			}
+		}
+		if(strgen == "" ) {
+			alert("성별을 선택하세요");
+		}
+		
+		var flag1 = true;
+		for(i=0; i<hobby.length; i++){
+			if(hobby[i].checked) {
+				str += hobby[i].value+ "";
+			}
+		}
+		if(str == "" ) {
+			alert("취미를 선택하세요");
+			return false;
+		}
+		
+		
+		
+		
+		
+		if(loc.value == "") {
+			alert("지역을 선택해주세요");
+			return false;
+		}
+		
+		alert("가입 정보" + " \n" + "id : " + id.value + " \n" + "pw : " +pw.value + "\n" +  "성별 : " +strgen + "\n " +  "취미 : " + str + "\n " + "지역 : " + loc.value);
+	}
+
+</script>
+</head>
+<body>
+회원가입
+<form name="registerForm" onsubmit="return registerCheck()" action ="register.jsp">
+	아이디 : <input type="text" name="id"><br>
+	패스워드:<input type="password" name="password"><br>
+	패스워드확인:<input type="password" name="passwordCheck"><br>
+	성별 : <input type="radio" value="남" name = "gender">남 <input type="radio" value="여" name="gender">여<br>
+	취미 : <input type="checkbox" value="독서" name="hobby">독서 <input type="checkbox" value="운동" name="hobby">운동 <input type="checkbox" value="게임" name="hobby">게임<br>
+	
+	지역 : <select name="location">
+		<option value="서울">서울</option>
+		<option value="부산">부산</option>
+		<option value="충청">충청</option>
+	
+	</select><br>
+	<input type="button" value="가입하기" onclick="register()">
+
+</form>
+
+
+</body>
+</html>

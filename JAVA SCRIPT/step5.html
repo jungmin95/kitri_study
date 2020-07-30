@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>javascript form 제어 text 공란체크</title>
+<script type="text/javascript">
+	function login() {
+		var id=document.loginForm.userId;
+		if(id.value="") {
+			alert("아이디를 입력하세요");
+			
+		}else {
+			alert(id.value);
+			id.value="";
+		}
+		id.focus();
+	}
+</script>
+</head>
+<body>
+<form name="loginForm">
+	아이디 : <input type="text" name="userId">
+	<input type="button" value="로그인" onclick="login()">
+</form>
+
+</body>
+</html>

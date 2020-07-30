@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function loginCheck() {
+			var en=document.loginForm.id;
+			if(en.value="") {
+				alert("id를 입력하세요");
+				return false;
+			}
+		}
+	
+	</script>
+
+</head>
+<body>
+<form name="loginForm" action = "login.jsp" onsubmit="return loginCheck()">
+	ID : <input type="submit" name="id">
+	<input type="submit" value="로그인">
+
+</form>
+</body>
+</html>

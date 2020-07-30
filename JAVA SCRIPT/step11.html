@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function radioEx() {
+		//menu radio 는ㄷ ㅏ수가 존재, 이 경우 javascript에서는 배열로 인식
+		
+		var me = document.menuForm.menu;
+		
+		//laert(me.length); menu radio가3개이므로 3이 반환
+		//alert(me.value); 배열이므로 value를 확인할수 없다
+		//alert(me[0].value);
+		//alert(me[0].checked);//radio에 체크여부를 true//false
+		//라디오 버튼을 선택하고 주문을 누르면
+		//선택한 항목 예)차돌박이를 주문하였습니다.
+		// 아무것도 선택하지않으면 메뉴를 선택하세요
+		
+		var flag=true;
+		for(i =0; i< me.length; i++ ) {
+			if(me[i].checked) {
+				alert(me[i].value + "를 주문하였습니다!");
+				flag=false;
+				break;
+			}
+		}
+		if(flag)
+			alert("메뉴를 선택하세요")
+		
+	}
+
+</script>
+</head>
+<body>
+<form name="menuForm">
+<input type="radio" value="꽃등심" name="menu">꽃등심 <br>
+<input type="radio" value="우삼겹" name="menu">우삼겹<br>
+<input type="radio" value="차돌박이" name="menu">차돌박이<br>
+
+<input type="button" value="주문" onclick="radioEx()">
+</form>
+
+
+</body>
+</html>

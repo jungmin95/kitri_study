@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+//함수정의 : function으로 시작
+	function test1() {
+		alert("방가");
+	}
+	function test2(name, mess) {
+		alert(name + " " + mess);
+	}
+	function test3(i, j) {
+		return i+j
+	}
+</script>
+</head>
+<body>
+
+	<input type="button" value="버튼1" onclick="test1()"><hr>
+	<input type="button" value="버튼2" onclick="test2('보아', '방가')"><hr>
+<script type="text/javascript" >
+	sum = test3(1,2);
+	document.write(sum);
+</script>
+</body>
+</html>

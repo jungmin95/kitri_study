@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var count = 0;
+	function showCount() {
+		//alert("showCount");
+		document.getElementById("sp").innerHTML=count++;
+		
+	}
+
+</script>
+</head>
+<body>
+	<input type="button" value="spanTest" onclick="showCount()">
+	
+	<span id="sp"></span>
+</body>
+</html>

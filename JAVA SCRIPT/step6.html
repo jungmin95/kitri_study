@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function checkAge() {
+		//age라는 text의 data가 18세 이상이면 성인 입장가능
+		//18세 미만이면 나이 더 먹고 와~!! 라는 메세지 띄운다
+		//만약 숫자가 아니면 숫자로 입력하라는 메세지를 띄운다
+		var age = document.ageForm.ageForm.age;
+		//실제 숫자인지 확인
+		var flag=window.isNan(age.value);
+		//숫자가 아니면 true를 반환
+		if(flag) {
+			alert("숫자를 넣으세요");
+			age.value="";
+			age.focus();
+			return; //함수수행 중단
+		}
+		if(age.value>=18) {
+			alert("성인입장가능");
+		}else {
+			alert("18세 미만이면 나이더먹고와!");
+		}
+		age.value="";
+		age.focus();
+	
+	}
+</script>
+</head>
+<body>
+<form name="ageForm">
+	나이 : <input type="text" name="age">
+	<input type="button" value="확인" onclick="checkAge()">
+</form>
+
+</body>
+</html>
