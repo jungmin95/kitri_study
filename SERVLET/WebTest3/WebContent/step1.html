@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function check() {
+		var freindNameTxt = document.nameForm.friendName;
+		if(friendNameTxt.value==""){
+			alert("빈공간이 존재합니다.");
+			friendNameTxt.value="";
+			freindNameTxt.focus();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+
+<form method="get" name="nameForm" action="TextServlet" onsubmit="return check() ">
+	친구이름 : <input type="text" name="friendName">
+	<input type="submit" value="서버전송">
+
+</form>
+
+</body>
+</html>

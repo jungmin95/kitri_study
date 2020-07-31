@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function multiCheck() {
+		var genderTxt = document.multiForm.gender;
+		var flag = true;
+		for(i=0; i<genderTxt.length; i++) {
+			if(genderTxt[i].chekced) {
+				flag = false;
+				break;
+			}
+		}
+// 		if(flag) {
+// 			alert("라디오버튼 선택하세요");
+// 			return false;
+// 		}
+		var singerTxt = document.multiForm.singer;
+		
+		if(singerTxt.value==""){
+			alert("빈공간이 존재합니다");
+			singerTxt.value="";
+			singerTxt.focus();
+			return false;
+		}
+		var flag2 = window.isNaN(singerTxt.value);
+		if(flag2) {
+			laerT("숫자를 입력하세요");
+			return false;
+		}
+		
+		var nameTxt = document.multiForm.name;
+		var flag1 = true;
+		for(i=0; i<nameTxt.length; i++) {
+			if(nameTxt[i].checked){
+				flag1=false;
+				break;
+			}
+		}
+		if(flag1){
+			alert("체크박스 선택 하세요");
+			return false;
+		}
+	
+		
+		
+		
+	}
+
+</script>
+
+</head>
+<body>
+
+<form action ="MultiServlet" name="multiForm" method="get" onsubmit="return multiCheck()">
+<input type="radio" value="남" name="gender"> 남<br>
+<input type="radio" value="여" name="gender"> 여<br>
+가수 : <input type="text" name="singer"><br>
+<input type="checkbox" value="a" name="name"> 백승식<br>
+<input type="checkbox" value="b" name="name"> 민찬기<br>
+<input type="checkbox" value="c" name="name"> 이준우<br>
+<input type="submit" value="전송">
+
+</form>
+
+</body>
+</html>
