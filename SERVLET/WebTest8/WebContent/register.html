@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function checkRegister() {
+		var idTxt = document.registerForm.userId;
+		if (idTxt.value == "") {
+			alert("id를 입력하세요");
+			idTxt.value ="";
+			idTxt.focus();
+			return false;
+		}
+		var passwordTxt = document.registerForm.userPass;
+		if(passwordTxt.value == "" ){
+			alert("패스워드를 입력하세요.");
+			passwordTxt.value = "";
+			passwordTxt.focus();
+			return false;
+		}
+		var nameTxt = document.registerForm.userName;
+		if(nameTxt.value == "") {
+			alert("이름을 입력하세요");
+			nameTxt.value = "";
+			nameTxt.focus();
+			return false;
+		}
+		var addressTxt = document.registerForm.userAddr;
+		if(addressTxt.value == "" ) {
+			alert("주소를 입력하세요");
+			addressTxt.value = "";
+			addressTxt.focus();
+			return false;
+		}
+	}
+
+</script>
+</head>
+<body>
+<form method="post" name="registerForm" action = "RegisterServlet" onsubmit="return checkRegister()">
+아이디 : <input type="text" name="userId"> <input type="button" value="중복확인" name="duplicationCheck"><br><br>
+패스워드 : <input type="password" name="userPass"><br><br>
+이름 : <input type="text" name="userName"><br><br>
+주소 : <input type="text" name="userAddr"><br><br>
+<input type="submit" value="회원가입">
+</form>
+
+</body>
+</html>

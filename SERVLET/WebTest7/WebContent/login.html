@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function idCheck() {
+		var idTxt = document.loginForm.id;
+		
+		if(idTxt.value=="") {
+			alert("아이디를 기재해주세요.");
+			idTxt.value="";
+			idTxt.focus();
+			return false;
+		}
+		var passTxt = document.loginForm.pass;
+		
+		if(passTxt == "" ) {
+			alert("비밀번호를 기재해주세요." );
+			passTxt.value="";
+			passTxt.focus();
+			return false;
+		}
+	}
+	
+</script>
+
+</head>
+<body>
+<form method="post" name="loginForm" action="LoginServlet" onsubmit="return idCheck()">
+아이디 : <input type="text" name="id"><br>
+패스워드 : <input type="text" name="pass"><br>
+<input type="submit" value="로그인">
+</form>
+</body>
+</html>
