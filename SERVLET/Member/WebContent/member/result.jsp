@@ -22,7 +22,8 @@
 	<br>
 	<a href="<%=request.getContextPath()%>/LogoutController">로그아웃</a>
 	<br>
-	
+	<a href="<%=request.getContextPath()%>/EditController">내 정보수정</a>
+	<br>
 	
 	<%
 	}else {

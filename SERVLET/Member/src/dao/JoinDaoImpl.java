@@ -78,12 +78,57 @@ public class JoinDaoImpl implements JoinDao {
 	@Override
 	public void update(Member m) {
 		// TODO Auto-generated method stub
+		Connection conn = null;
 		
+		String sql = "UPDATE member SET pwd=?, name=?, email=? where id =?";
+		PreparedStatement pstmt = null;
+		try {
+			conn = db.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getPwd());
+			pstmt.setString(2, m.getName());
+			pstmt.setString(3, m.getEmail());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
+		Connection conn =null;
+		
+		String sql = "DELETE member WHERE id=?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = db.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 }
