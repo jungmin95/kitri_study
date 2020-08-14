@@ -13,7 +13,7 @@ public class ServiceImpl implements Service {
 	}
 	@Override
 	public void addOrder(Order o) {
-		// TODO Auto-generated method stub
+		dao.insert(o);
 		
 	}
 

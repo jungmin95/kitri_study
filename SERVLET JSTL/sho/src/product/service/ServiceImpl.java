@@ -35,7 +35,7 @@ public class ServiceImpl implements Service {
 	}
 
 	public void delProduct(int num) {
-		// TODO Auto-generated method stub
+		dao.delete(num);
 		
 	}
 
@@ -51,8 +51,8 @@ public class ServiceImpl implements Service {
 
 	public Product editQuantity(int q, int num) {
 		// TODO Auto-generated method stub
-		
-		return null;
+		dao.updateQuantity(q, num);
+		return getProduct(num);
 	}
 
 }

@@ -151,14 +151,56 @@ public class DaoImpl implements Dao {
 	}
 
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		Connection conn = db.getConnection();
+		
+		String sql = "delete shop_product where num=?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 
 	@Override
 	public int selectNum() {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection conn = db.getConnection();
+		String sql = "select seq_shop_product.nextval from dual";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int num = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				num = rs.getInt(1);
+			}
+			rs.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return num;
+		
 	}
 	
 	
@@ -197,7 +239,28 @@ public class DaoImpl implements Dao {
 	
 	
 	public void updateQuantity(int q, int num) {
-		// TODO Auto-generated method stub
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE shop_product SET quantity=quantity-? WHERE num=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, q);
+			pstmt.setInt(2, num);
+			pstmt.executeUpdate();
+			
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 
 		
