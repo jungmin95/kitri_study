@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>마우스 이벤트 예제</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		var cell = document.getElementById("cell");
+		if (cell.addEventListener) {
+			cell.addEventListener("mouseover", mouseOverOnCell, false);
+			cell.addEventListener("mouseout", mouseOutOnCell, false);
+			cell.addEventListener("click", clickOnCell, false);
+		} else if (cell.attachEvent) {
+			cell.attachEvent('onmouseover' + mouseOverOnCell);
+			cell.attachEvent('onmouseout' + mouseOutOnCell);
+			cell.attachEvent('onclick' + clickOnCell);
+		}
+	}
+	function mouseOverOnCell(e) {
+		var event = window.event || e;
+		var target;
+		
+		if (event.target){
+			target = event.target;
+		} else if (event.srcElement){
+			target = event.srcElement;
+		}
+		
+		target.style.background = "#cccccc";
+	}
+	function mouseOutOnCell(e) {
+		var event = window.event || e;
+		var target;
+		
+		if (event.target){
+			target = event.target;
+		} else if (event.srcElement){
+			target = event.srcElement;
+		}
+		target.style.background = "#ffffff";
+	}
+	function clickOnCell(e) {
+		var event = window.event || e;
+		var target;
+		
+		if (event.target){
+			target = event.target;
+		} else if (event.srcElement){
+			target = event.srcElement;
+		}
+		alert(target.id+"에서 클릭");
+	}
+	</script>
+</head>
+<body>
+<span id="cell">마우스이벤트</span>
+</body>
+</html>
